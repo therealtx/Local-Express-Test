@@ -1,0 +1,46 @@
+$activeColor: #01BD70;
+$borderWidth: 2px;
+
+.checkbox {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #DDE0E7;
+  position: relative;
+  border-radius: 4px;
+  display: inline-flex;
+  align-items: center;
+
+  & :global {
+    .ant-checkbox {
+      opacity: 0;
+      visibility: hidden;
+    }
+  }
+
+  &:global(.ant-checkbox-wrapper-checked) {
+    border-color: $activeColor;
+
+    &:before {
+      content: "";
+      width: 10px;
+      height: 10px;
+      position: absolute;
+      background: #fff;
+      right: -2px;
+      top: -2px;
+    }
+
+    &:after {
+      position: absolute;
+      top: -7px;
+      left: 7px;
+      content: "";
+      display: inline-block;
+      transform: rotate(45deg);
+      height: 18px;
+      width: 9px;
+      border-bottom: $borderWidth solid $activeColor;
+      border-right: $borderWidth solid $activeColor;
+    }
+  }
+}
